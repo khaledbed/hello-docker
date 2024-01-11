@@ -141,3 +141,117 @@ echo "Example command: docker-compose -f docker-compose.yml -f docker-compose.pr
 echo "Step 8: Cleanup - Removing Docker Compose and Volumes"
 docker-compose down -v
 echo "---------------------------------------------"
+
+# Docker Compose Advanced Configuration
+
+# Step 1: Introduction to Docker Compose Advanced Configuration
+echo "Step 1: Introduction to Docker Compose Advanced Configuration"
+echo "Explore advanced configuration options and features in Docker Compose to optimize and customize your application deployments."
+
+# Step 2: Using External Compose Files
+echo "Step 2: Using External Compose Files"
+echo "Organize your Docker Compose configurations by using external files."
+echo "Example command (in main docker-compose.yml):"
+echo "```
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - 8080:80
+  db:
+    image: postgres:latest
+  ...
+x-common-configuration: &common-configuration
+  networks:
+    - frontend
+    - backend
+
+networks:
+  frontend:
+  backend:
+---
+version: '3'
+services:
+  web:
+    <<: *common-configuration
+  ...
+```"
+
+# Step 3: Environment Variables in Docker Compose
+echo "Step 3: Environment Variables in Docker Compose"
+echo "Use environment variables in your Docker Compose file for dynamic and flexible configurations."
+echo "Example command (in docker-compose.yml):"
+echo "```
+services:
+  web:
+    image: nginx:latest
+    environment:
+      - NODE_ENV=production
+      - API_KEY=my_secret_key
+  ...
+```"
+
+# Step 4: Conditional Configuration with Docker Compose
+echo "Step 4: Conditional Configuration with Docker Compose"
+echo "Leverage conditionals and external tools to control the behavior of your Docker Compose configurations."
+echo "Example command (in docker-compose.yml):"
+echo "```
+services:
+  web:
+    image: nginx:latest
+    command: |
+      bash -c 'if [ \"$DEBUG\" == \"true\" ]; then echo \"Debug mode enabled\"; else echo \"Debug mode disabled\"; fi'
+  ...
+```"
+
+# Step 5: Docker Compose Overrides
+echo "Step 5: Docker Compose Overrides"
+echo "Use override files to define configuration changes for specific environments or use cases."
+echo "Example command (for development override in docker-compose.override.yml):"
+echo "```
+services:
+  web:
+    ports:
+      - 8081:80
+  ...
+```"
+
+# Step 6: Sharing Volumes Across Services
+echo "Step 6: Sharing Volumes Across Services"
+echo "Share volumes between services for persistent data storage and sharing."
+echo "Example command (in docker-compose.yml):"
+echo "```
+services:
+  web:
+    image: nginx:latest
+    volumes:
+      - shared_data:/app/data
+  db:
+    image: postgres:latest
+    volumes:
+      - shared_data:/var/lib/postgresql/data
+volumes:
+  shared_data:
+```"
+
+# Step 7: Configuring Resource Constraints
+echo "Step 7: Configuring Resource Constraints"
+echo "Set resource constraints for services in Docker Compose to control CPU and memory usage."
+echo "Example command (in docker-compose.yml):"
+echo "```
+services:
+  web:
+    image: nginx:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+  ...
+```"
+
+# Step 8: Cleanup - Removing Docker Compose Configurations
+echo "Step 8: Cleanup - Removing Docker Compose Configurations"
+docker-compose down
+echo "---------------------------------------------"
+
