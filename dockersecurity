@@ -57,5 +57,80 @@ docker stop my_container cadvisor
 docker rm my_container cadvisor
 echo "---------------------------------------------"
 
-# End of Docker Logging and Monitoring
-echo "End of Docker Logging and Monitoring"
+# Docker Secrets and Configs
+
+# Step 1: Introduction to Docker Secrets and Configs
+echo "Step 1: Introduction to Docker Secrets and Configs"
+echo "Docker provides mechanisms for managing sensitive data and configuration files. Explore the usage of secrets and configs for enhanced security."
+
+# Step 2: Creating Docker Secrets
+echo "Step 2: Creating Docker Secrets"
+echo "Define and create Docker secrets to securely store sensitive information."
+echo "Example command: echo 'my_secret_data' | docker secret create my_secret -"
+
+# Step 3: Using Secrets in Docker Compose
+echo "Step 3: Using Secrets in Docker Compose"
+echo "Incorporate secrets into your Docker Compose file for service-level access."
+echo "Example snippet (in docker-compose.yml):"
+echo "```
+services:
+  my_service:
+    image: my_image
+    secrets:
+      - my_secret
+secrets:
+  my_secret:
+    external: true
+```"
+
+# Step 4: Mounting Secrets in Docker Services
+echo "Step 4: Mounting Secrets in Docker Services"
+echo "Mount secrets as files in Docker services for application access."
+echo "Example command (in Dockerfile):"
+echo "```
+RUN --mount=type=secret,id=my_secret,target=/app/secrets/my_secret.txt cat /app/secrets/my_secret.txt > /app/config/my_secret.txt
+```"
+
+# Step 5: Updating Secrets in Running Services
+echo "Step 5: Updating Secrets in Running Services"
+echo "Update secrets in running services without restarting containers."
+echo "Example command: docker secret update --label-add version=2 my_secret -"
+
+# Step 6: Creating Docker Configs
+echo "Step 6: Creating Docker Configs"
+echo "Define and create Docker configs to manage configuration files."
+echo "Example command: echo 'config_value' | docker config create my_config -"
+
+# Step 7: Using Configs in Docker Compose
+echo "Step 7: Using Configs in Docker Compose"
+echo "Incorporate configs into your Docker Compose file for service-level access."
+echo "Example snippet (in docker-compose.yml):"
+echo "```
+services:
+  my_service:
+    image: my_image
+    configs:
+      - my_config
+configs:
+  my_config:
+    external: true
+```"
+
+# Step 8: Mounting Configs in Docker Services
+echo "Step 8: Mounting Configs in Docker Services"
+echo "Mount configs as files in Docker services for application access."
+echo "Example command (in Dockerfile):"
+echo "```
+RUN --mount=type=config,id=my_config,target=/app/config/my_config.txt cat /app/config/my_config.txt > /app/config/my_config.txt
+```"
+
+# Step 9: Updating Configs in Running Services
+echo "Step 9: Updating Configs in Running Services"
+echo "Update configs in running services without restarting containers."
+echo "Example command: docker config update --label-add version=2 my_config -"
+
+# Step 10: Cleanup - Removing Secrets and Configs
+echo "Step 10: Cleanup - Removing Secrets and Configs"
+docker secret rm my_secret
+docker config rm my_config
+echo "---------------------------------------------"
