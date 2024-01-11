@@ -1,0 +1,61 @@
+#!/bin/bash
+# Docker Logging and Monitoring
+
+# Step 1: Introduction to Docker Logging
+echo "Step 1: Introduction to Docker Logging"
+echo "Docker provides logging mechanisms to capture and manage container logs. Explore various logging options and best practices."
+
+# Step 2: Viewing Container Logs
+echo "Step 2: Viewing Container Logs"
+echo "Check container logs for troubleshooting and monitoring purposes."
+echo "Example command: docker logs my_container"
+
+# Step 3: Tail Container Logs in Real-time
+echo "Step 3: Tail Container Logs in Real-time"
+echo "Use 'docker logs -f' to stream container logs in real-time."
+echo "Example command: docker logs -f my_container"
+
+# Step 4: Configuring Logging Drivers
+echo "Step 4: Configuring Logging Drivers"
+echo "Choose and configure logging drivers for Docker containers."
+echo "Example snippet (in docker-compose.yml):"
+echo "```
+services:
+  my_service:
+    image: my_image
+    logging:
+      driver: syslog
+```"
+
+# Step 5: Setting up ELK Stack for Logging
+echo "Step 5: Setting up ELK Stack for Logging"
+echo "Deploy the ELK (Elasticsearch, Logstash, Kibana) stack for centralized logging."
+echo "Example: Use Docker Compose to run ELK stack containers."
+
+# Step 6: Introduction to Docker Monitoring
+echo "Step 6: Introduction to Docker Monitoring"
+echo "Monitor Docker containers and services to ensure performance and availability."
+
+# Step 7: Using Docker Stats
+echo "Step 7: Using Docker Stats"
+echo "Check real-time resource usage statistics for running containers."
+echo "Example command: docker stats my_container"
+
+# Step 8: Deploying cAdvisor for Container Monitoring
+echo "Step 8: Deploying cAdvisor for Container Monitoring"
+echo "Use cAdvisor for container-specific performance metrics."
+echo "Example command: docker run -d --name cadvisor -p 8080:8080 --volume /:/rootfs:ro --volume /var/run:/var/run:rw --volume /sys:/sys:ro --volume /var/lib/docker/:/var/lib/docker:ro google/cadvisor:latest"
+
+# Step 9: Monitoring with Prometheus and Grafana
+echo "Step 9: Monitoring with Prometheus and Grafana"
+echo "Set up Prometheus and Grafana for container orchestration monitoring."
+echo "Example: Use Docker Compose to run Prometheus and Grafana containers."
+
+# Step 10: Cleanup - Removing Monitoring Containers
+echo "Step 10: Cleanup - Removing Monitoring Containers"
+docker stop my_container cadvisor
+docker rm my_container cadvisor
+echo "---------------------------------------------"
+
+# End of Docker Logging and Monitoring
+echo "End of Docker Logging and Monitoring"
