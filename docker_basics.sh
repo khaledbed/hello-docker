@@ -1,5 +1,5 @@
 #!/bin/bash
-# Dockerfile and Containerization
+# Dockerfile and Containerization and Docker Networking
 
 # Step 1: Introduction to Dockerfile and Containerization
 echo "Step 1: Introduction to Dockerfile and Containerization"
@@ -77,4 +77,48 @@ docker volume rm my_volume
 echo "Step 8: Cleanup - Stopping and Removing Containers"
 docker stop container_with_volume container_with_host_volume
 docker rm container_with_volume container_with_host_volume
+echo "---------------------------------------------"
+
+
+# Docker Networking
+
+# Step 1: Introduction to Docker Networking
+echo "Step 1: Introduction to Docker Networking"
+echo "Docker provides networking features to allow communication between containers and with the external world."
+
+# Step 2: Listing Docker Networks
+echo "Step 2: Listing Docker Networks"
+docker network ls
+
+# Step 3: Creating a Docker Bridge Network
+echo "Step 3: Creating a Docker Bridge Network"
+docker network create my_bridge_network
+
+# Step 4: Running Containers on a Specific Network
+echo "Step 4: Running Containers on a Specific Network"
+docker run -it --name container_on_network --network my_bridge_network ubuntu:latest
+docker run -it --name another_container_on_network --network my_bridge_network ubuntu:latest
+
+# Step 5: Inspecting a Container's Network
+echo "Step 5: Inspecting a Container's Network"
+docker inspect container_on_network | grep Networks
+
+# Step 6: Creating a Docker Overlay Network
+echo "Step 6: Creating a Docker Overlay Network"
+docker network create --driver overlay my_overlay_network
+
+# Step 7: Running Services on the Overlay Network
+echo "Step 7: Running Services on the Overlay Network"
+docker service create --name service_on_overlay --network my_overlay_network alpine ping google.com
+
+# Step 8: Inspecting a Service's Network
+echo "Step 8: Inspecting a Service's Network"
+docker inspect service_on_overlay | grep Networks
+
+# Step 9: Cleaning Up - Removing Networks and Containers
+echo "Step 9: Cleaning Up - Removing Networks and Containers"
+docker network rm my_bridge_network my_overlay_network
+docker stop container_on_network another_container_on_network
+docker rm container_on_network another_container_on_network
+docker service rm service_on_overlay
 echo "---------------------------------------------"
