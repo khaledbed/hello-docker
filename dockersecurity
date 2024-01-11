@@ -57,6 +57,43 @@ docker stop my_container cadvisor
 docker rm my_container cadvisor
 echo "---------------------------------------------"
 
+# Docker Security Scanning
+
+# Step 1: Introduction to Docker Security Scanning
+echo "Step 1: Introduction to Docker Security Scanning"
+echo "Docker Security Scanning tools help identify vulnerabilities in Docker images. Explore security scanning practices to enhance container security."
+
+# Step 2: Using Docker Security Scanning in Docker Hub
+echo "Step 2: Using Docker Security Scanning in Docker Hub"
+echo "Enable automated security scanning for Docker images in Docker Hub repositories."
+
+# Step 3: Running Trivy for Image Scanning
+echo "Step 3: Running Trivy for Image Scanning"
+echo "Use Trivy, an open-source vulnerability scanner, to scan Docker images for known vulnerabilities."
+echo "Example command: trivy my_image:latest"
+
+# Step 4: Implementing Anchore Engine
+echo "Step 4: Implementing Anchore Engine"
+echo "Set up Anchore Engine to perform container image analysis and security scanning."
+echo "Example command (using Docker Compose): docker-compose up -d"
+
+# Step 5: Integrating Security Scanning into CI/CD Pipelines
+echo "Step 5: Integrating Security Scanning into CI/CD Pipelines"
+echo "Incorporate security scanning as a step in your CI/CD process to catch vulnerabilities early."
+
+# Step 6: Analyzing Security Scan Reports
+echo "Step 6: Analyzing Security Scan Reports"
+echo "Review security scan reports to understand and address vulnerabilities in your Docker images."
+
+# Step 7: Mitigating Vulnerabilities
+echo "Step 7: Mitigating Vulnerabilities"
+echo "Follow best practices to mitigate identified vulnerabilities in Docker images, such as updating base images and dependencies."
+
+# Step 8: Cleanup - Removing Anchore Engine
+echo "Step 8: Cleanup - Removing Anchore Engine"
+docker-compose down
+echo "---------------------------------------------"
+
 # Docker Secrets and Configs
 
 # Step 1: Introduction to Docker Secrets and Configs
