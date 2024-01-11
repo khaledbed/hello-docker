@@ -35,7 +35,8 @@ services:
   my_service:
     image: my_image
     environment:
-      - SECRET_KEY```
+      - SECRET_KEY
+```
 
 
 **Step 9: Network Segmentation for Services**
