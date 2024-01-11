@@ -113,4 +113,63 @@ docker secret rm my_secret_data
 docker config rm my_config_data
 echo "---------------------------------------------"
 
+# Docker Swarm Deployments
+
+# Step 1: Introduction to Docker Swarm Deployments
+echo "Step 1: Introduction to Docker Swarm Deployments"
+echo "Learn how to deploy and manage applications using Docker Swarm, a native clustering and orchestration solution for Docker."
+
+# Step 2: Initializing a Docker Swarm
+echo "Step 2: Initializing a Docker Swarm"
+echo "Set up a Docker Swarm on your manager node."
+echo "Example command: docker swarm init --advertise-addr <manager_node_ip>"
+
+# Step 3: Joining Nodes to the Swarm
+echo "Step 3: Joining Nodes to the Swarm"
+echo "Add worker nodes to the Docker Swarm for a multi-node setup."
+echo "Example command (on worker nodes): docker swarm join --token <swarm_token> <manager_node_ip>:2377"
+
+# Step 4: Deploying Services in the Swarm
+echo "Step 4: Deploying Services in the Swarm"
+echo "Use Docker services to deploy applications in the Swarm."
+echo "Example command: docker service create --name my_web_app -p 8080:80 nginx:latest"
+
+# Step 5: Scaling Services in the Swarm
+echo "Step 5: Scaling Services in the Swarm"
+echo "Scale the number of replicas for a service to handle increased load."
+echo "Example command: docker service scale my_web_app=3"
+
+# Step 6: Updating Services in the Swarm
+echo "Step 6: Updating Services in the Swarm"
+echo "Roll out updates to services in a controlled and rolling manner."
+echo "Example command: docker service update --image nginx:alpine my_web_app"
+
+# Step 7: Rolling Back Service Updates
+echo "Step 7: Rolling Back Service Updates"
+echo "Roll back to a previous version of a service if issues arise."
+echo "Example command: docker service update --rollback my_web_app"
+
+# Step 8: Inspecting Services and Tasks
+echo "Step 8: Inspecting Services and Tasks"
+echo "View detailed information about running services and tasks in the Swarm."
+echo "Example commands:"
+echo "docker service ps my_web_app"
+echo "docker service inspect my_web_app"
+
+# Step 9: Removing Services from the Swarm
+echo "Step 9: Removing Services from the Swarm"
+echo "Remove services from the Swarm when they are no longer needed."
+echo "Example command: docker service rm my_web_app"
+
+# Step 10: Leaving the Swarm
+echo "Step 10: Leaving the Swarm"
+echo "On worker nodes, leave the Swarm when they are no longer part of the cluster."
+echo "Example command: docker swarm leave"
+
+# Step 11: Cleanup - Removing Docker Swarm
+echo "Step 11: Cleanup - Removing Docker Swarm"
+echo "On the manager node, force leave the Swarm and clean up."
+echo "Example command: docker swarm leave --force"
+echo "---------------------------------------------"
+
 
